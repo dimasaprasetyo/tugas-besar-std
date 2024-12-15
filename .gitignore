@@ -1,0 +1,67 @@
+# Binaries for programs and libraries
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+
+# Object files
+*.o
+*.obj
+
+# Libraries
+*.lib
+*.a
+
+# Debug files
+*.pdb
+*.log
+
+# IDE-specific files
+.vscode/
+.idea/
+*.code-workspace
+
+# CMake build directories
+build/
+cmake-build-debug/
+cmake-build-release/
+
+# Backup files
+*.bak
+*.tmp
+*~
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Generated files
+Makefile
+CMakeFiles/
+CMakeCache.txt
+
+# Dependency directories
+deps/
+third_party/
+vendor/
+
+# Test outputs
+test-results/
+*.gcda
+*.gcno
+
+# Temporary files created during compilation
+*.gch
+
+# Additional files
+*.swp
+*.swo
+*.stackdump
+
+# Ignore compiled libraries
+*.a
+*.lo
+*.la
