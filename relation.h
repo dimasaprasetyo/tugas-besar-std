@@ -1,12 +1,12 @@
 #ifndef RELATION_H_INCLUDED
 #define RELATION_H_INCLUDED
 
-#include "lecturer.h"  // Header file untuk dosen
-#include "student.h"   // Header file untuk mahasiswa
+#include "lecturer.h"
+#include "student.h"
 
 struct Relation {
-    elmLecturer lecturer; // Pointer ke elemen dosen
-    elmStudent student;   // Pointer ke elemen mahasiswa
+    elmLecturer lecturer;
+    elmStudent student;
 };
 
 typedef struct Relation relationInfo;
@@ -17,11 +17,6 @@ struct ElmRelation {
     elmRelation next;
 };
 
-
-//void createRelationList(elmRelation &relationList);
-//elmRelation createNewRelation(elmLecturer lecturer, elmStudent student);
-//void insertRelation(elmRelation &relationList, elmRelation newRelation);
-//void deleteRelation(elmRelation &relationList, elmLecturer lecturer, elmStudent student);
 void createRelationList(elmRelation& head);
 elmRelation createNewRelation(elmLecturer lecturer, elmStudent student);
 void insertRelation(elmRelation& head, elmRelation newRelation);

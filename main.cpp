@@ -7,6 +7,32 @@ elmLecturer lecturerList;
 elmStudent studentList;
 elmRelation relationList;
 
+void addDummyLecturers(elmLecturer& lecturerList) {
+    // Membuat dosen pertama
+    elmLecturer lecturer1 = new ElmLecturer;
+    lecturer1->info.nidn = "123456";
+    lecturer1->info.name = "Dosen1";
+    lecturer1->info.code = "TI-01";
+    lecturer1->info.gender = "L";
+    lecturer1->next = nullptr;
+
+    // Menambah dosen pertama ke list
+    lecturerList = lecturer1;
+}
+
+void addDummyStudents(elmStudent& studentList) {
+    // Membuat mahasiswa pertama
+    elmStudent student1 = new ElmStudent;
+    student1->info.nim = "103042310105";
+    student1->info.name = "Dimas";
+    student1->info.code = "PJJ";
+    student1->info.gender = "L";
+    student1->next = nullptr;
+
+    // Menambah mahasiswa pertama ke list
+    studentList = student1;
+}
+
 // Menu untuk Dosen
 void menuDosen() {
     cout << "\n=== Menu Dosen ===\n";
@@ -116,7 +142,8 @@ void menuRelasi() {
         cout << "2. Hapus Relasi\n";
         cout << "3. Tampilkan Relasi\n";
         cout << "4. Tampilkan Relasi\n";
-        cout << "5. Kembali ke Menu Utama\n";
+        cout << "5. Menghitung Jumlah Relasi Mahasiswa - Dosen\n";
+        cout << "6. Kembali ke Menu Utama\n";
         cout << "Pilihan Anda: ";
         cin >> choice;
 
@@ -178,6 +205,9 @@ void menuRelasi() {
                 cout << "Mahasiswa dengan NIM " << nim << " memiliki " << parentCount << " parent.\n";
                 break;
             }
+            case 6:
+                cout << "Kembali ke menu utama...\n";
+                break;
             default: {
                 cout << "Pilihan tidak valid. Coba lagi.\n";
                 break;
@@ -191,6 +221,8 @@ int main() {
     createLecturerList(lecturerList);
     createStudentList(studentList);
     createRelationList(relationList);
+    addDummyLecturers(lecturerList);
+    addDummyStudents(studentList);
     int pilihan;
 
     do {
