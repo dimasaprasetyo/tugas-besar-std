@@ -17,6 +17,7 @@ struct ElmRelation {
     elmRelation next;
 };
 
+//Fungsi - fungsi relasi
 void createRelationList(elmRelation& head);
 elmRelation createNewRelation(elmLecturer lecturer, elmStudent student);
 void insertRelation(elmRelation& head, elmRelation newRelation);
@@ -26,7 +27,5 @@ void editRelation(elmRelation& head, const string& nim, elmLecturer newLecturer)
 void showChildWithParent(elmRelation head);
 int countParentsForChild(elmRelation head, const string& nim);
 int countChildWithoutParent(elmRelation head, elmStudent studentList);
-
-
 
 #endif

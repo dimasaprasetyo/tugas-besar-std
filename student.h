@@ -22,6 +22,7 @@ struct ElmStudent {
 
 //Fungsi - fungsi mahasiswa
 void createStudentList(elmStudent& head);
+void addDummyStudents(elmStudent& studentList);
 elmStudent createNewStudent(string nim, string name, string code, string gender);
 void insertStudent(elmStudent& head, elmStudent newStudent);
 void deleteStudent(elmStudent& head, string nim);
@@ -30,4 +31,4 @@ elmStudent findStudentByNim(elmStudent head, const string& nim);
 elmStudent findStudent(elmStudent head, const string& nim);
 elmStudent findStudentByName(elmStudent head, const string& name);
 
-#endif // STUDENT_H_INCLUDED
+#endif

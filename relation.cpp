@@ -1,48 +1,48 @@
 #include "relation.h"
 
 void createRelationList(elmRelation& head) {
-    head = nullptr; // Inisialisasi list relasi sebagai kosong
+    head = NULL;
 }
 
 elmRelation createNewRelation(elmLecturer lecturer, elmStudent student) {
     elmRelation newRelation = new ElmRelation;
     newRelation->info.lecturer = lecturer;
     newRelation->info.student = student;
-    newRelation->next = nullptr;
+    newRelation->next = NULL;
     return newRelation;
 }
 
 void insertRelation(elmRelation& head, elmRelation newRelation) {
-    if (head == nullptr) {
-        head = newRelation; // Jika list kosong, elemen menjadi head
+    if (head == NULL) {
+        head = newRelation;
     } else {
         elmRelation temp = head;
-        while (temp->next != nullptr) {
-            temp = temp->next; // Iterasi hingga elemen terakhir
+        while (temp->next != NULL) {
+            temp = temp->next;
         }
         temp->next = newRelation; // Menambahkan elemen di akhir
     }
 }
 
 void deleteRelation(elmRelation& head, elmLecturer lecturer, elmStudent student) {
-    if (head == nullptr) {
+    if (head == NULL) {
         cout << "List relasi kosong.\n";
         return;
     }
 
-    elmRelation prev = nullptr, current = head;
-    while (current != nullptr &&
+    elmRelation prev = NULL, current = head;
+    while (current != NULL &&
            (current->info.lecturer != lecturer || current->info.student != student)) {
         prev = current;
         current = current->next;
     }
 
-    if (current == nullptr) {
+    if (current == NULL) {
         cout << "Relasi tidak ditemukan.\n";
         return;
     }
 
-    if (prev == nullptr) {
+    if (prev == NULL) {
         head = current->next; // Hapus elemen pertama
     } else {
         prev->next = current->next; // Hapus elemen di tengah/akhir
@@ -53,13 +53,13 @@ void deleteRelation(elmRelation& head, elmLecturer lecturer, elmStudent student)
 }
 
 void showAllRelations(elmRelation head) {
-    if (head == nullptr) {
+    if (head == NULL) {
         cout << "Tidak ada relasi.\n";
         return;
     }
 
     elmRelation temp = head;
-    while (temp != nullptr) {
+    while (temp != NULL) {
         cout << "Dosen: " << temp->info.lecturer->info.name
              << " - Mahasiswa: " << temp->info.student->info.name << endl;
         temp = temp->next;
@@ -67,13 +67,13 @@ void showAllRelations(elmRelation head) {
 }
 
 void showChildWithParent(elmRelation head) {
-    if (head == nullptr) {
+    if (head == NULL) {
         cout << "Tidak ada relasi yang tersedia.\n";
         return;
     }
 
     elmRelation current = head;
-    while (current != nullptr) {
+    while (current != NULL) {
         cout << "Mahasiswa: " << current->info.student->info.name
              << " (NIM: " << current->info.student->info.nim << ") "
              << "berelasi dengan Dosen: " << current->info.lecturer->info.name
@@ -85,7 +85,7 @@ void showChildWithParent(elmRelation head) {
 int countParentsForChild(elmRelation head, const string& nim) {
     int count = 0;
     elmRelation current = head;
-    while (current != nullptr) {
+    while (current != NULL) {
         if (current->info.student->info.nim == nim) {
             count++;
         }
@@ -98,11 +98,11 @@ int countChildWithoutParent(elmStudent studentList, elmRelation relationList) {
     int count = 0;
     elmStudent currentStudent = studentList;
 
-    while (currentStudent != nullptr) {
+    while (currentStudent != NULL) {
         bool hasParent = false;
 
         elmRelation currentRelation = relationList;
-        while (currentRelation != nullptr) {
+        while (currentRelation != NULL) {
             if (currentRelation->info.student == currentStudent) {
                 hasParent = true;
                 break;
@@ -122,7 +122,7 @@ int countChildWithoutParent(elmStudent studentList, elmRelation relationList) {
 
 void editRelation(elmRelation& head, const string& nim, elmLecturer newLecturer) {
     elmRelation current = head;
-    while (current != nullptr) {
+    while (current != NULL) {
         if (current->info.student->info.nim == nim) {
             current->info.lecturer = newLecturer; // Mengganti dosen
             cout << "Relasi berhasil diperbarui.\n";

@@ -14,23 +14,10 @@ void addDummyLecturers(elmLecturer& lecturerList) {
     lecturer1->info.name = "Dosen1";
     lecturer1->info.code = "TI-01";
     lecturer1->info.gender = "L";
-    lecturer1->next = nullptr;
+    lecturer1->next = NULL;
 
     // Menambah dosen pertama ke list
     lecturerList = lecturer1;
-}
-
-void addDummyStudents(elmStudent& studentList) {
-    // Membuat mahasiswa pertama
-    elmStudent student1 = new ElmStudent;
-    student1->info.nim = "103042310105";
-    student1->info.name = "Dimas";
-    student1->info.code = "PJJ";
-    student1->info.gender = "L";
-    student1->next = nullptr;
-
-    // Menambah mahasiswa pertama ke list
-    studentList = student1;
 }
 
 // Menu untuk Dosen
@@ -96,7 +83,7 @@ void menuMahasiswa() {
                     getline(cin, nim);
 
                     elmStudent result = findStudentByNim(studentList, nim);
-                    if (result != nullptr) {
+                    if (result != NULL) {
                         cout << "Mahasiswa Ditemukan:\n";
                         cout << "NIM: " << result->info.nim << "\n";
                         cout << "Nama: " << result->info.name << "\n";
@@ -111,7 +98,7 @@ void menuMahasiswa() {
                     getline(cin, name);
 
                     elmStudent result = findStudentByName(studentList, name);
-                    if (result != nullptr) {
+                    if (result != NULL) {
                         cout << "Mahasiswa Ditemukan:\n";
                         cout << "NIM: " << result->info.nim << "\n";
                         cout << "Nama: " << result->info.name << "\n";
@@ -140,7 +127,7 @@ void menuRelasi() {
         cout << "\n=== Menu Relasi ===\n";
         cout << "1. Tambah Relasi\n";
         cout << "2. Hapus Relasi\n";
-        cout << "3. Tampilkan Relasi\n";
+        cout << "3. Menampilkan Semua Relasi\n";
         cout << "4. Tampilkan Relasi\n";
         cout << "5. Menghitung Jumlah Relasi Mahasiswa - Dosen\n";
         cout << "6. Kembali ke Menu Utama\n";
@@ -159,7 +146,7 @@ void menuRelasi() {
                 elmLecturer lecturer = findLecturer(lecturerList, lecturerName);
                 elmStudent student = findStudent(studentList, studentNim);
 
-                if (lecturer == nullptr || student == nullptr) {
+                if (lecturer == NULL || student == NULL) {
                     cout << "Dosen atau Mahasiswa tidak ditemukan.\n";
                 } else {
                     elmRelation newRelation = createNewRelation(lecturer, student);
@@ -179,7 +166,7 @@ void menuRelasi() {
                 elmLecturer lecturer = findLecturer(lecturerList, lecturerName);
                 elmStudent student = findStudent(studentList, studentNim);
 
-                if (lecturer == nullptr || student == nullptr) {
+                if (lecturer == NULL || student == NULL) {
                     cout << "Dosen atau Mahasiswa tidak ditemukan.\n";
                 } else {
                     deleteRelation(relationList, lecturer, student);
